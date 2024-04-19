@@ -1,0 +1,73 @@
+2024-02-24 10:30:22,749 ERROR: Exception on /register [POST] [in /mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/flask/app.py:825]
+Traceback (most recent call last):
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: user.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/project-workthrough/app/routes.py", line 103, in register
+    db.session.commit()
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/orm/scoping.py", line 598, in commit
+    return self._proxied.commit()
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1969, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1256, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/orm/state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1231, in _prepare_impl
+    self.session.flush()
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 4312, in flush
+    self._flush(objects)
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 4448, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 4408, in _flush
+    flush_context.execute()
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 1226, in _emit_insert_statements
+    result = connection.execute(
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1416, in execute
+    return meth(
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 516, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1639, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1848, in _execute_context
+    return self._exec_single_context(
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1988, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2343, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1969, in _exec_single_context
+    self.dialect.do_execute(
+  File "/mnt/c/Users/ayand/OneDrive/Documents/software_development/chapter9_assessment_project/ball/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 922, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
+[SQL: INSERT INTO user (username, email, password_hash, about_me, last_seen) VALUES (?, ?, ?, ?, ?)]
+[parameters: ('Cacti🌵', 'ayanda@email.com', 'scrypt:32768:8:1$8frE60U0k13NH3ro$eb8b6ec66e94f04896a6407f5e9f03e7b8f750c3c3e926321e0ab4e8e9be3d74409f691e53b8e0ad5aca1e9f8436890d136714c811727e4a5c82c6d8f703aac2', None, '2024-02-24 07:30:22.744359')]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2024-02-24 10:33:23,036 INFO: Tinker Full-stack App [in /mnt/c/Users/ayand/OneDrive/Documents/software_development/project-workthrough/app/__init__.py:59]
+2024-02-24 10:36:22,346 INFO: Tinker Full-stack App [in /mnt/c/Users/ayand/OneDrive/Documents/software_development/project-workthrough/app/__init__.py:59]

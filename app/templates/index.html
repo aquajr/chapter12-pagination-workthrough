@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+     <div class="row">
+        <div class="col-md-12">
+            <p>
+                Hi {{ current_user.username }}, say something:
+            </p>
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{form.body.label}}<br>
+                    {{form.body(cols=100, rows=4) }}
+                    {% for error in form.body.errors %}
+                        <span style="color:purple;">
+                            {{error }}
+                        </span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.submit() }}
+                </p>
+            </form>
+        </div>
+     </div>
+     <hr>
+     <div class="row">
+        <div class="col-md-6">
+            <h1>All user posts</h1>
+            {% for post in posts %}
+                {% if post %}
+                        {% include '_post.html' %}
+                {% endif %}
+            {% endfor %}
+            {% if prev_url %}
+                <a href=" {{ prev_url }} ">Newer Posts</a>
+            {% endif %}
+            {% if next_url %}
+                <a href=" {{ next_url }} ">Older Posts</a>
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <h1>All my Posts</h1>
+            {% for post in my_posts %}
+                {% if post %}
+                        {% include '_post.html' %}
+                {% endif %}
+            {% endfor %}
+            {% if my_prev_url %}
+                <a href=" {{ my_prev_url }} "> My newer posts</a>
+            {% endif %}
+            {% if my_next_url %}
+                <a href=" {{ my_next_url }} "> My older posts</a>
+            {% endif %}
+        </div>
+     </div>
+
+
+{% endblock %}

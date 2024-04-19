@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="widths=width-device, initial-scale=1">
+        {% if title %}
+            <title> {{ title }} - Flask Templates</title>
+        {% else %}
+            <title> Flask Templates Demo</title>
+        {% endif %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+         rel="stylesheet" 
+         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" 
+         crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container text-center">
+            <!--link-->
+            <div class="row text-center">
+                <div class="col-md-6">
+                    <h1><a href="{{ url_for('index') }}">Student's Spaces</a></h1>
+                </div>
+                    {% if current_user.is_authenticated %}
+                    <div class="col-md-3">
+                    <h1><a href="{{ url_for('logout') }}">Logout</a></h1>
+                    </div>
+                    {% else %}
+                    <div class="col-md-3">
+                    <h1><a href="{{ url_for('login') }}">Login</a></h1>
+                    </div>
+                    {% endif %}
+            </div>
+            <hr>
+        </div>
+        <!--begining of flash message-->
+        <div class="row text-center">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                             <div class="alert alert-success" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+        </div>
+        <!--END OF FLASH MESSAGE-->
+
+            {% block content %}
+            {% endblock %}
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" 
+         crossorigin="anonymous"></script>
+    </body>
+</html>
